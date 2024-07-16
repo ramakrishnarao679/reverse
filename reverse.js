@@ -1,4 +1,4 @@
-const originalArray = [1, 2, 3, 4, 5];
+// const originalArray = [1, 2, 3, 4, 5];
 
 // const reversedArray= originalArray.reverse()
 // console.log(reversedArray);
@@ -23,9 +23,28 @@ const originalArray = [1, 2, 3, 4, 5];
 // console.log(reversedArray);
 
 
-let reversedArray =[];
-for(var item of originalArray){
-    reversedArray.unshift(item)
-}
-console.log(reversedArray);
+// let reversedArray =[];
+// for(var item of originalArray){
+//     reversedArray.unshift(item)
+// }
+// console.log(reversedArray);
 
+// const reversedArray = originalArray.reduce((acc, current)=>{
+//     acc.unshift(current);
+//     return acc;
+// }, []);
+
+// console.log(reversedArray);
+
+function reversedArray (arr){
+    if(arr.length ===0){
+        return [];
+    }else {
+        const [first,  ...rest] = arr;
+        console.log(first);
+        console.log(rest);
+
+        return [...reversedArray(rest), first];
+    }
+}
+console.log(reversedArray([1, 2, 3, 4, 5]));
